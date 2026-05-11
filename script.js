@@ -184,3 +184,33 @@ gsap.utils.toArray(".section-label").forEach(label => {
         }
     });
 });
+
+
+
+// EMAILJS CONTACT FORM
+
+// Initialize EmailJS
+emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+
+// Contact Form Submit
+document.getElementById("portfolio-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("user-name").value;
+    const email = document.getElementById("user-email").value;
+    const message = document.getElementById("user-message").value;
+
+    emailjs.send("service_a5n5elw", "YOUR_TEMPLATE_ID", {
+        name: name,
+        email: email,
+        message: message
+    })
+    .then(function () {
+        alert("Request sent successfully!");
+        document.getElementById("portfolio-form").reset();
+    })
+    .catch(function (error) {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send request.");
+    });
+});
