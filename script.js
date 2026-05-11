@@ -190,7 +190,7 @@ gsap.utils.toArray(".section-label").forEach(label => {
 // EMAILJS CONTACT FORM
 
 // Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual public key
+emailjs.init("3vNiguo-DTGpezikh"); // Replace with your actual public key
 
 // Contact Form Submit
 document.getElementById("portfolio-form").addEventListener("submit", function (e) {
@@ -200,7 +200,7 @@ document.getElementById("portfolio-form").addEventListener("submit", function (e
     const email = document.getElementById("user-email").value;
     const message = document.getElementById("user-message").value;
 
-    emailjs.send("service_a5n5elw", "YOUR_TEMPLATE_ID", {
+    emailjs.send("service_a5n5elw", "template_r43304l", {
         name: name,
         email: email,
         message: message
