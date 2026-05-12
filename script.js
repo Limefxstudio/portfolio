@@ -190,27 +190,33 @@ gsap.utils.toArray(".section-label").forEach(label => {
 // EMAILJS CONTACT FORM
 
 // Initialize EmailJS
-emailjs.init("3vNiguo-DTGpezikh"); // Replace with your actual public key
+document.addEventListener("DOMContentLoaded", function () {
 
-// Contact Form Submit
-document.getElementById("portfolio-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+    emailjs.init("3vNiguo-DTGpezikh");
 
-    const name = document.getElementById("user-name").value;
-    const email = document.getElementById("user-email").value;
-    const message = document.getElementById("user-message").value;
+    const form = document.getElementById("portfolio-form");
 
-    emailjs.send("service_a5n5elw", "template_r43304l", {
-        name: name,
-        email: email,
-        message: message
-    })
-    .then(function () {
-        alert("Request sent successfully!");
-        document.getElementById("portfolio-form").reset();
-    })
-    .catch(function (error) {
-        console.error("EmailJS Error:", error);
-        alert("Failed to send request.");
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("user-name").value;
+        const email = document.getElementById("user-email").value;
+        const message = document.getElementById("user-message").value;
+
+        emailjs.send("service_a5n5elw", "template_r43304l", {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function () {
+            alert("Request sent successfully!");
+            form.reset();
+        })
+        .catch(function (error) {
+            console.error("EmailJS Error:", error);
+            alert("Failed to send request.");
+        });
+
     });
+
 });
